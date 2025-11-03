@@ -533,39 +533,39 @@ function ProjectCardMobile() {
 
   return (
     <Box>
-      <Typography
-        variant="h5"
-        align="center"
-        sx={{
-          mb: 2,
-          fontWeight: 500,
-          color: '#42a5f5',
-          border: '2px solid #42a5f5',
-          borderRadius: '8px',
-          display: 'inline-block',
-          px: 3,
-          py: 1
-        }}
-      >
-        Weather — Mobile App (Glass UI)
-      </Typography>
+ <Typography
+  variant="h5"
+  align="center"
+  sx={{
+    mb: 2,
+    fontWeight: 500,
+    color: '#42a5f5',
+    border: '2px solid #42a5f5',
+    borderRadius: '8px',
+    display: 'inline-block',
+    px: 3,
+    py: 1,
+    mx: 'auto' // добавлено для центрирования
+  }}
+>
+  Weather Forecast — Mobile App
+</Typography>
 
-      <Typography
-        variant="body2"
-        align="center"
-        sx={{
-          mb: 6,
-          color: 'rgba(255,255,255,0.8)',
-          maxWidth: 600,
-          mx: 'auto',
-          lineHeight: 1.6
-        }}
-      >
-        Мобильная версия прогноза погоды в стеклянном стиле: светлая/тёмная темы,
-        °C/°F, геолокация, почасовой и 5-дневный прогноз. Макеты показаны в рамке смартфона.
-      </Typography>
+<Typography
+  variant="body2"
+  align="center"
+  sx={{
+    mb: 6,
+    color: 'rgba(255,255,255,0.8)',
+    maxWidth: 600,
+    mx: 'auto',
+    lineHeight: 1.6
+  }}
+>
+ A mobile weather app with a sleek glass-style interface that displays current conditions, hourly and 5-day forecasts, and supports geolocation and city search with autocomplete. It includes °C/°F unit toggle, adaptive dark/light themes, and smart error handling for API or location issues.
+</Typography>
 
-      {/* Лента телефонов в «стеклянном» контейнере */}
+
       <Box
         sx={{
           display: 'flex',
@@ -588,7 +588,6 @@ function ProjectCardMobile() {
   );
 }
 
-/** Рамка телефона c «чёлкой» + стеклянная карточка */
 function GlassPhone({ src, alt, caption }) {
   return (
     <Box
@@ -609,7 +608,7 @@ function GlassPhone({ src, alt, caption }) {
           transform: 'scale(1.06)',
           boxShadow: '0 30px 60px rgba(0,0,0,0.55)'
         },
-        // «чёлка»/динамик
+
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -623,7 +622,7 @@ function GlassPhone({ src, alt, caption }) {
         }
       }}
     >
-      {/* Экран телефона */}
+
       <Box
         sx={{
           width: '100%',
@@ -645,7 +644,7 @@ function GlassPhone({ src, alt, caption }) {
           />
         </Box>
 
-        {/* подпись под экраном */}
+   
         <Box
           sx={{
             py: 1,
