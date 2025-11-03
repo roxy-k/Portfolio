@@ -181,7 +181,7 @@ function App() {
       display: 'block',
       width: '60%',
       height: '3px',
-      backgroundColor: '#42a5f5', // тот же синий, что у кнопок
+      backgroundColor: '#42a5f5', 
       margin: '8px auto 0',
       borderRadius: '2px',
     
@@ -206,6 +206,11 @@ function App() {
             </Box>
           </Container>
         </Box>
+        {/* Third project — Mobile App */}
+<Box sx={{ mt: 12 }}>
+  <ProjectCardMobile />
+</Box>
+
 
         {/* Skills Section */}
         <Box id="skills" sx={{ py: 8 }}>
@@ -517,4 +522,145 @@ function ProjectCardSecond() {
     </Box>
   );
 }
+
+function ProjectCardMobile() {
+  // положи файлы в /public и проверь расширения (png/jpg)
+  const phoneShots = [
+    { src: "/screenshot7.png", alt: "Light theme screen", caption: "Light theme • °C mode" },
+    { src: "/screenshot9.png", alt: "Dark theme screen",  caption: "Dark theme • °F mode" },
+    { src: "/screenshot8.png", alt: "5-day screen",       caption: "Hourly & 5-day forecast" },
+  ];
+
+  return (
+    <Box>
+      <Typography
+        variant="h5"
+        align="center"
+        sx={{
+          mb: 2,
+          fontWeight: 500,
+          color: '#42a5f5',
+          border: '2px solid #42a5f5',
+          borderRadius: '8px',
+          display: 'inline-block',
+          px: 3,
+          py: 1
+        }}
+      >
+        Weather — Mobile App (Glass UI)
+      </Typography>
+
+      <Typography
+        variant="body2"
+        align="center"
+        sx={{
+          mb: 6,
+          color: 'rgba(255,255,255,0.8)',
+          maxWidth: 600,
+          mx: 'auto',
+          lineHeight: 1.6
+        }}
+      >
+        Мобильная версия прогноза погоды в стеклянном стиле: светлая/тёмная темы,
+        °C/°F, геолокация, почасовой и 5-дневный прогноз. Макеты показаны в рамке смартфона.
+      </Typography>
+
+      {/* Лента телефонов в «стеклянном» контейнере */}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'stretch',
+          gap: 4,
+          px: 8,
+          py: 6,
+          overflowX: 'auto',
+          overflowY: 'visible',
+          scrollbarWidth: 'none',
+          '&::-webkit-scrollbar': { display: 'none' }
+        }}
+      >
+        {phoneShots.map((shot, i) => (
+          <GlassPhone key={i} {...shot} />
+        ))}
+      </Box>
+    </Box>
+  );
+}
+
+/** Рамка телефона c «чёлкой» + стеклянная карточка */
+function GlassPhone({ src, alt, caption }) {
+  return (
+    <Box
+      sx={{
+        flexShrink: 0,
+        width: 260,
+        height: 520,
+        borderRadius: '36px',
+        p: '14px',
+        position: 'relative',
+        backdropFilter: 'blur(10px)',
+        background:
+          'linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))',
+        border: '1px solid rgba(255,255,255,0.12)',
+        boxShadow: '0 20px 40px rgba(0,0,0,0.45)',
+        transition: 'transform .3s ease, box-shadow .3s ease',
+        '&:hover': {
+          transform: 'scale(1.06)',
+          boxShadow: '0 30px 60px rgba(0,0,0,0.55)'
+        },
+        // «чёлка»/динамик
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 8,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: 90,
+          height: 18,
+          borderRadius: '12px',
+          backgroundColor: 'rgba(0,0,0,0.5)'
+        }
+      }}
+    >
+      {/* Экран телефона */}
+      <Box
+        sx={{
+          width: '100%',
+          height: '100%',
+          borderRadius: '28px',
+          overflow: 'hidden',
+          backgroundColor: 'rgba(0,0,0,0.35)',
+          display: 'flex',
+          flexDirection: 'column'
+        }}
+      >
+        <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', p: 1 }}>
+          <Box
+            component="img"
+            src={src}
+            alt={alt}
+            onError={(e) => { e.currentTarget.src = '/placeholder.png'; }}
+            sx={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+          />
+        </Box>
+
+        {/* подпись под экраном */}
+        <Box
+          sx={{
+            py: 1,
+            textAlign: 'center',
+            borderTop: '1px solid rgba(255,255,255,0.08)',
+            backgroundColor: 'rgba(255,255,255,0.02)'
+          }}
+        >
+          <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.9)' }}>
+            {caption}
+          </Typography>
+        </Box>
+      </Box>
+    </Box>
+  );
+}
+
 export default App;
