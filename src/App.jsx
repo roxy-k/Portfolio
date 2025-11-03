@@ -543,11 +543,13 @@ function ProjectCardMobile() {
     display: 'inline-block', 
     px: 3,
     py: 1,
+    mx: 'auto', 
   }}
-  align="center" 
+  align="center"
 >
   Weather Forecast — Mobile App
 </Typography>
+
 
 <Typography
   variant="body2"
