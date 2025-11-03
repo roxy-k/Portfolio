@@ -532,23 +532,24 @@ function ProjectCardMobile() {
 
   return (
     <Box>
-<Typography
-  variant="h5"
-  sx={{
-    mb: 2,
-    fontWeight: 500,
-    color: '#42a5f5',
-    border: '2px solid #42a5f5',
-    borderRadius: '8px',
-    display: 'inline-block', 
-    px: 3,
-    py: 1,
-    mx: 'auto', 
-  }}
-  align="center"
->
-  Weather Forecast — Mobile App
-</Typography>
+<Box sx={{ textAlign: 'center' }}>
+  <Typography
+    variant="h5"
+    sx={{
+      mb: 2,
+      fontWeight: 500,
+      color: '#42a5f5',
+      border: '2px solid #42a5f5',
+      borderRadius: '8px',
+      display: 'inline-block',
+      px: 3,
+      py: 1,
+    }}
+  >
+    Weather Forecast — Mobile App
+  </Typography>
+</Box>
+
 
 
 <Typography
