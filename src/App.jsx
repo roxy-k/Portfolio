@@ -524,7 +524,6 @@ function ProjectCardSecond() {
 }
 
 function ProjectCardMobile() {
-  // положи файлы в /public и проверь расширения (png/jpg)
   const phoneShots = [
     { src: "/screenshot7.png", alt: "Light theme screen", caption: "Light theme • °C mode" },
     { src: "/screenshot9.png", alt: "Dark theme screen",  caption: "Dark theme • °F mode" },
@@ -542,10 +541,11 @@ function ProjectCardMobile() {
     color: '#42a5f5',
     border: '2px solid #42a5f5',
     borderRadius: '8px',
-    display: 'inline-block',
+    display: 'block',
     px: 3,
     py: 1,
-    mx: 'auto' // добавлено для центрирования
+    mx: 'auto', 
+    textAlign: 'center'
   }}
 >
   Weather Forecast — Mobile App
