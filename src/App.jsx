@@ -210,6 +210,10 @@ function App() {
 <Box sx={{ mt: 12 }}>
   <ProjectCardMobile />
 </Box>
+        {/* Fourth project — Nest Egg */}
+        <Box sx={{ mt: 12 }}>
+  <ProjectCardNestEgg />
+</Box>
 
 
         {/* Skills Section */}
@@ -589,6 +593,9 @@ function ProjectCardMobile() {
   );
 }
 
+
+
+
 function GlassPhone({ src, alt, caption }) {
   return (
     <Box
@@ -662,5 +669,83 @@ function GlassPhone({ src, alt, caption }) {
     </Box>
   );
 }
+
+
+
+function ProjectCardNestEgg() {
+  return (
+    <Box>
+      <Typography
+        variant="h5"
+        align="center"
+        sx={{
+          mb: 2,
+          fontWeight: 500,
+          color: '#42a5f5',
+          border: '2px solid #42a5f5',
+          borderRadius: '8px',
+          display: 'inline-block',
+          px: 3,
+          py: 1,
+          mx: 'auto',
+        }}
+      >
+        Nest Egg — Budget Tracker Web App
+      </Typography>
+
+      <Typography
+        variant="body2"
+        align="center"
+        sx={{
+          mb: 6,
+          color: 'rgba(255,255,255,0.8)',
+          maxWidth: 600,
+          mx: 'auto',
+          lineHeight: 1.6,
+        }}
+      >
+        A full-stack budgeting app that helps users track income, expenses, and savings. 
+        Features authentication, real-time transactions, budgets, analytics, and a modern UI.
+      </Typography>
+
+      <GlassVideo src="/nestegg-demo.mov" />
+    </Box>
+  );
+}
+
+
+function GlassVideo({ src }) {
+  return (
+    <Box
+      sx={{
+        width: '80%',
+        maxWidth: 900,
+        mx: 'auto',
+        borderRadius: '20px',
+        overflow: 'hidden',
+        backdropFilter: 'blur(10px)',
+        background:
+          'linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))',
+        border: '1px solid rgba(255,255,255,0.12)',
+        boxShadow: '0 20px 40px rgba(0,0,0,0.45)',
+      }}
+    >
+      <video
+        src={src}
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          display: 'block',
+        }}
+      />
+    </Box>
+  );
+}
+
 
 export default App;
