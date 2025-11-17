@@ -16,9 +16,13 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 
 function App() {
-  const [open, setOpen] = React.useState(false);
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const [projectsOpen, setProjectsOpen] = React.useState(false);
 
   React.useEffect(() => {
     document.body.style.margin = '0';
@@ -39,7 +43,7 @@ function App() {
   }, []);
 
   const toggleDrawer = () => {
-    setOpen(!open);
+    setMenuOpen(!menuOpen);
   };
 
   return (
@@ -54,7 +58,7 @@ function App() {
         </IconButton>
         <Drawer
           anchor="left"
-          open={open}
+          open={menuOpen}
           onClose={toggleDrawer}
           PaperProps={{ sx: { bgcolor: '#121212', color: 'white' } }}
         >
@@ -165,56 +169,87 @@ function App() {
 
         {/* Projects Section */}
         <Box id="projects" sx={{ textAlign: 'center', py: 30 }}>
-          <Container disableGutters maxWidth={false}>
-<Typography
-  variant="h4"
-  align="center"
-  sx={{
-    mb: 8,
-    color: 'white',
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    position: 'relative',
-    display: 'inline-block',
-    '&::after': {
-      content: '""',
-      display: 'block',
-      width: '60%',
-      height: '3px',
-      backgroundColor: '#42a5f5', 
-      margin: '8px auto 0',
-      borderRadius: '2px',
-    
-    }
-  }}
->
-  My Projects
-</Typography>
+          <Container
+            disableGutters
+            maxWidth={false}
+            sx={{ display: 'flex', justifyContent: 'center' }}
+          >
+            <Accordion
+              expanded={projectsOpen}
+              onChange={(_, expanded) => setProjectsOpen(expanded)}
+              sx={{
+                background: 'transparent',
+                color: 'white',
+                boxShadow: 'none',
+                maxWidth: 900,
+                width: '100%',
+                mx: 'auto',
+                alignItems: 'center'
+              }}
+            >
+              <AccordionSummary
+                expandIcon={
+                  <ExpandMoreIcon
+                    sx={{
+                      color: '#42a5f5',
+                      transform: projectsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.2s ease'
+                    }}
+                  />
+                }
+                sx={{
+                  border: '2px solid #42a5f5',
+                  borderRadius: '8px',
+                  px: 3,
+                  py: 1,
+                  mx: 'auto',
+                  width: 'fit-content',
+                  mb: 4,
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
+                <Typography
+                  variant="h4"
+                  align="center"
+                  sx={{
+                    color: 'white',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    letterSpacing: 2
+                  }}
+                >
+                  Projects
+                </Typography>
+              </AccordionSummary>
 
+              <AccordionDetails
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center'
+                }}
+              >
+                <Box sx={{ mt: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <ProjectCard />
+                </Box>
 
+                <Box sx={{ mt: 12, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <ProjectCardSecond />
+                </Box>
 
+                <Box sx={{ mt: 12, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <ProjectCardMobile />
+                </Box>
 
+                <Box sx={{ mt: 12, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <ProjectCardNestEgg />
+                </Box>
+              </AccordionDetails>
+            </Accordion>
 
-
-            <Box sx={{ width: '100%', overflow: 'visible', position: 'relative' }}>
-              <ProjectCard />
-
-              {/* Second project */}
-              <Box sx={{ mt: 12 }}>
-                <ProjectCardSecond />
-              </Box>
-            </Box>
           </Container>
         </Box>
-        {/* Third project — Mobile App */}
-<Box sx={{ mt: 12 }}>
-  <ProjectCardMobile />
-</Box>
-        {/* Fourth project — Nest Egg */}
-        <Box sx={{ mt: 12 }}>
-  <ProjectCardNestEgg />
-</Box>
-
 
         {/* Skills Section */}
         <Box id="skills" sx={{ py: 8 }}>
@@ -529,9 +564,9 @@ function ProjectCardSecond() {
 
 function ProjectCardMobile() {
   const phoneShots = [
-    { src: "/screenshot7.png", alt: "Light theme screen", caption: "Light theme • °C mode" },
-    { src: "/screenshot9.png", alt: "Dark theme screen",  caption: "Dark theme • °F mode" },
-    { src: "/screenshot8.png", alt: "5-day screen",       caption: "Hourly & 5-day forecast" },
+    { src: "/screenshot7.PNG", alt: "Light theme screen", caption: "Light theme • °C mode" },
+    { src: "/screenshot9.PNG", alt: "Dark theme screen",  caption: "Dark theme • °F mode" },
+    { src: "/screenshot8.PNG", alt: "5-day screen",       caption: "Hourly & 5-day forecast" },
   ];
 
   return (
@@ -674,7 +709,7 @@ function GlassPhone({ src, alt, caption }) {
 
 function ProjectCardNestEgg() {
   return (
-    <Box>
+   <Box sx={{ textAlign: 'center' }}>
       <Typography
         variant="h5"
         align="center"
@@ -687,7 +722,6 @@ function ProjectCardNestEgg() {
           display: 'inline-block',
           px: 3,
           py: 1,
-          mx: 'auto',
         }}
       >
         Nest Egg — Budget Tracker Web App
@@ -732,9 +766,7 @@ function GlassVideo({ src }) {
     >
       <video
         src={src}
-        autoPlay
-        muted
-        loop
+      controls
         playsInline
         style={{
           width: '100%',
