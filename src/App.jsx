@@ -310,7 +310,7 @@ function App() {
             </Typography>
             <Stack direction="row" justifyContent="center" spacing={4}>
               <a
-                href="https://www.linkedin.com/in/oksana-katysheva-0417741a1/"
+                href="https://www.linkedin.com/in/oksana-katysheva/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
