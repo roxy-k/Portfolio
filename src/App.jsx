@@ -110,7 +110,7 @@ function App() {
           </Container>
         </Box>
 {/* About Section */}
-<Box id="about" sx={{ py: 16, bgcolor: '#000' }}>
+<Box id="about" sx={{ py: 10, bgcolor: '#000' }}>
   <Container>
     <Typography
       variant="h4"
@@ -168,7 +168,7 @@ function App() {
 
 
         {/* Projects Section */}
-        <Box id="projects" sx={{ textAlign: 'center', py: 30 }}>
+        <Box id="projects" sx={{ textAlign: 'center', py: 16 }}>
           <Container
             disableGutters
             maxWidth={false}
@@ -181,7 +181,7 @@ function App() {
                 background: 'transparent',
                 color: 'white',
                 boxShadow: 'none',
-                maxWidth: 900,
+                maxWidth: 1200,
                 width: '100%',
                 mx: 'auto',
                 alignItems: 'center'
@@ -256,7 +256,7 @@ function App() {
         </Box>
 
         {/* Skills Section */}
-        <Box id="skills" sx={{ py: 8 }}>
+        <Box id="skills" sx={{ py: 6 }}>
           <Container disableGutters maxWidth={false}>
             <Typography variant="h4" align="center" gutterBottom sx={{ mb: 8, 
     fontWeight: 600, 
@@ -293,7 +293,7 @@ function App() {
 
               
         {/* Contact Section */}
-        <Box id="contact" sx={{ py: 8 }}>
+        <Box id="contact" sx={{ py: 6 }}>
           <Container disableGutters maxWidth={false}>
             <Typography variant="h4" gutterBottom align="center"  sx={{  mb: 8, 
     fontWeight: 600, 
@@ -353,7 +353,7 @@ function ProjectCard() {
   ];
 
   return (
-    <Box sx={{ width: '100%', maxWidth: 720, mx: 'auto', px: { xs: 2, md: 0 }, boxSizing: 'border-box' }}>
+    <Box sx={{ width: '100%', maxWidth: 1100, mx: 'auto', px: { xs: 2, md: 2 }, boxSizing: 'border-box' }}>
   
 <Typography
   variant="h5"
@@ -374,14 +374,14 @@ function ProjectCard() {
 
 
 
-<Box sx={{ maxWidth: 700, mx: 'auto', mb: 6, textAlign: 'center' }}>
+<Box sx={{ maxWidth: 900, mx: 'auto', mb: 6, textAlign: 'center' }}>
 <Typography
   variant="body2"
   align="center"
   sx={{
     mb: 6,
     color: 'rgba(255,255,255,0.8)',
-    maxWidth: 600,
+    maxWidth: 760,
     mx: 'auto',
     lineHeight: 1.6
   }}
@@ -394,24 +394,23 @@ function ProjectCard() {
 
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', md: 'repeat(3, minmax(220px, 1fr))' },
           gap: 3,
-          px: 8,
+          px: { xs: 2, md: 6 },
           py: 6,
-          overflowX: 'auto',
-          overflowY: 'visible',
-          scrollbarWidth: 'none',
-          '&::-webkit-scrollbar': { display: 'none' }
+          width: '100%',
+          maxWidth: '100%',
+          mx: 'auto'
         }}
       >
         {screenshots.map((shot, index) => (
           <Box
             key={index}
             sx={{
-              width: 400,
-              height: 300,
+              width: '100%',
+              maxWidth: '100%',
+              mx: 'auto',
               borderRadius: 2,
               overflow: 'hidden',
               backgroundColor: 'rgba(255,255,255,0.05)',
@@ -429,27 +428,17 @@ function ProjectCard() {
               }
             }}
           >
-            <Box
-              sx={{
-                height: '75%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                p: 2,
-                backgroundColor: 'rgba(255,255,255,0.02)'
-              }}
-            >
+            <Box sx={{ p: 2, backgroundColor: 'rgba(255,255,255,0.02)' }}>
               <Box
                 component="img"
                 src={shot.src}
                 alt={shot.alt}
-                sx={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', borderRadius: 1, opacity: 0.9 }}
+                sx={{ width: '100%', height: 'auto', objectFit: 'contain', borderRadius: 1, opacity: 0.9, display: 'block' }}
               />
-            </Box>
-            <Box
-              sx={{ height: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', px: 2 }}
-            >
-              <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.75rem', fontWeight: 400, textAlign: 'center', lineHeight: 1.3 , mt:-3}}>
+              <Typography
+                variant="caption"
+                sx={{ mt: 2, color: 'rgba(255,255,255,0.9)', fontSize: '0.75rem', fontWeight: 400, textAlign: 'center', lineHeight: 1.3 }}
+              >
                 {shot.caption}
               </Typography>
             </Box>
@@ -468,7 +457,7 @@ function ProjectCardSecond() {
   ];
 
   return (
-    <Box sx={{ width: '100%', maxWidth: 720, mx: 'auto', px: { xs: 2, md: 0 }, boxSizing: 'border-box' }}>
+    <Box sx={{ width: '100%', maxWidth: 1100, mx: 'auto', px: { xs: 2, md: 2 }, boxSizing: 'border-box' }}>
      
   <Typography
   variant="h5"
@@ -495,7 +484,7 @@ function ProjectCardSecond() {
         sx={{
           mb: 6,
           color: 'rgba(255,255,255,0.8)',
-          maxWidth: 600,
+          maxWidth: 760,
           mx: 'auto',
           lineHeight: 1.6,
           fontSize: { xs: '0.95rem', md: '0.95rem' },
@@ -513,24 +502,23 @@ function ProjectCardSecond() {
      
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', md: 'repeat(3, minmax(220px, 1fr))' },
           gap: 3,
-          px: 8,
+          px: { xs: 2, md: 6 },
           py: 6,
-          overflowX: 'auto',
-          overflowY: 'visible',
-          scrollbarWidth: 'none',
-          '&::-webkit-scrollbar': { display: 'none' }
+          width: '100%',
+          maxWidth: '100%',
+          mx: 'auto'
         }}
       >
         {screenshots.map((shot, index) => (
           <Box
             key={index}
             sx={{
-              width: 400,
-              height: 300,
+              width: '100%',
+              maxWidth: '100%',
+              mx: 'auto',
               borderRadius: 2,
               overflow: 'hidden',
               backgroundColor: 'rgba(255,255,255,0.05)',
@@ -548,17 +536,18 @@ function ProjectCardSecond() {
               }
             }}
           >
-            <Box sx={{ height: '75%', display: 'flex', alignItems: 'center', justifyContent: 'center', p: 2, backgroundColor: 'rgba(255,255,255,0.02)' }}>
+            <Box sx={{ p: 2, backgroundColor: 'rgba(255,255,255,0.02)' }}>
               <Box
                 component="img"
                 src={shot.src}
                 alt={shot.alt}
-                sx={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', borderRadius: 1, opacity: 0.9 }}
+                sx={{ width: '100%', height: 'auto', objectFit: 'contain', borderRadius: 1, opacity: 0.9, display: 'block' }}
                 onError={(e) => { e.currentTarget.src = '/placeholder.png'; }}
               />
-            </Box>
-            <Box sx={{ height: '25%', display: 'flex', alignItems: 'center', justifyContent: 'center', px: 2 }}>
-              <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.75rem', fontWeight: 400, textAlign: 'center', lineHeight: 1.3, mt: -2 }}>
+              <Typography
+                variant="caption"
+                sx={{ mt: 2, color: 'rgba(255,255,255,0.9)', fontSize: '0.75rem', fontWeight: 400, textAlign: 'center', lineHeight: 1.3 }}
+              >
                 {shot.caption}
               </Typography>
             </Box>
@@ -577,7 +566,7 @@ function ProjectCardMobile() {
   ];
 
   return (
-    <Box sx={{ width: '100%', maxWidth: 720, mx: 'auto', px: { xs: 2, md: 0 }, boxSizing: 'border-box' }}>
+    <Box sx={{ width: '100%', maxWidth: 1100, mx: 'auto', px: { xs: 2, md: 2 }, boxSizing: 'border-box' }}>
 <Box sx={{ textAlign: 'center' }}>
   <Typography
     variant="h5"
@@ -604,7 +593,7 @@ function ProjectCardMobile() {
   sx={{
     mb: 6,
     color: 'rgba(255,255,255,0.8)',
-    maxWidth: 600,
+    maxWidth: 760,
     mx: 'auto',
     lineHeight: 1.6,
     fontSize: { xs: '0.95rem', md: '0.95rem' },
@@ -618,16 +607,14 @@ function ProjectCardMobile() {
 
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'stretch',
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', md: 'repeat(3, minmax(220px, 1fr))' },
           gap: 4,
-          px: 8,
+          px: { xs: 2, md: 6 },
           py: 6,
-          overflowX: 'auto',
-          overflowY: 'visible',
-          scrollbarWidth: 'none',
-          '&::-webkit-scrollbar': { display: 'none' }
+          width: '100%',
+          maxWidth: '100%',
+          mx: 'auto'
         }}
       >
         {phoneShots.map((shot, i) => (
@@ -646,7 +633,8 @@ function GlassPhone({ src, alt, caption }) {
     <Box
       sx={{
         flexShrink: 0,
-        width: 260,
+        width: '100%',
+        maxWidth: 300,
         height: 520,
         borderRadius: '36px',
         p: '14px',
@@ -657,9 +645,11 @@ function GlassPhone({ src, alt, caption }) {
         border: '1px solid rgba(255,255,255,0.12)',
         boxShadow: '0 20px 40px rgba(0,0,0,0.45)',
         transition: 'transform .3s ease, box-shadow .3s ease',
-        '&:hover': {
-          transform: 'scale(1.06)',
-          boxShadow: '0 30px 60px rgba(0,0,0,0.55)'
+        '@media (hover: hover) and (min-width: 900px)': {
+          '&:hover': {
+            transform: 'scale(1.04)',
+            boxShadow: '0 30px 60px rgba(0,0,0,0.55)'
+          }
         },
 
         '&::before': {
@@ -693,7 +683,7 @@ function GlassPhone({ src, alt, caption }) {
             src={src}
             alt={alt}
             onError={(e) => { e.currentTarget.src = '/placeholder.png'; }}
-            sx={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+            sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
           />
         </Box>
 
