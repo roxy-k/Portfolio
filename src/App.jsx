@@ -227,7 +227,11 @@ function App() {
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  px: { xs: 1, md: 0 },
+                  width: '100%',
+                  boxSizing: 'border-box',
+                  overflowX: 'hidden'
                 }}
               >
                 <Box sx={{ mt: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -349,7 +353,7 @@ function ProjectCard() {
   ];
 
   return (
-    <Box>
+    <Box sx={{ width: '100%', maxWidth: 720, mx: 'auto', px: { xs: 2, md: 0 }, boxSizing: 'border-box' }}>
   
 <Typography
   variant="h5"
@@ -464,7 +468,7 @@ function ProjectCardSecond() {
   ];
 
   return (
-    <Box>
+    <Box sx={{ width: '100%', maxWidth: 720, mx: 'auto', px: { xs: 2, md: 0 }, boxSizing: 'border-box' }}>
      
   <Typography
   variant="h5"
@@ -493,7 +497,10 @@ function ProjectCardSecond() {
           color: 'rgba(255,255,255,0.8)',
           maxWidth: 600,
           mx: 'auto',
-          lineHeight: 1.6
+          lineHeight: 1.6,
+          fontSize: { xs: '0.95rem', md: '0.95rem' },
+          overflowWrap: 'break-word',
+          wordBreak: 'break-word'
         }}
       >
         A dynamic web application for real-time weather insights. Features include:
@@ -570,7 +577,7 @@ function ProjectCardMobile() {
   ];
 
   return (
-    <Box>
+    <Box sx={{ width: '100%', maxWidth: 720, mx: 'auto', px: { xs: 2, md: 0 }, boxSizing: 'border-box' }}>
 <Box sx={{ textAlign: 'center' }}>
   <Typography
     variant="h5"
@@ -599,7 +606,10 @@ function ProjectCardMobile() {
     color: 'rgba(255,255,255,0.8)',
     maxWidth: 600,
     mx: 'auto',
-    lineHeight: 1.6
+    lineHeight: 1.6,
+    fontSize: { xs: '0.95rem', md: '0.95rem' },
+    overflowWrap: 'break-word',
+    wordBreak: 'break-word'
   }}
 >
  A mobile weather app with a sleek glass-style interface that displays current conditions, hourly and 5-day forecasts, and supports geolocation and city search with autocomplete. It includes °C/°F unit toggle, adaptive dark/light themes, and smart error handling for API or location issues.
